@@ -3,13 +3,13 @@ import {fetchYoutubeEmbed} from "@/redux/actions/fetchYoutubeEmbed";
 import {fetchTiktokEmbed} from "@/redux/actions/fetchTiktokEmbed";
 import instagramImg from "../../public/instagram-icon.png"
 import { format } from 'date-fns';
-import React from 'react'; // Import React từ thư viện react
+import React from 'react';
 
-const getFromStorage = (key) => {
-    if(typeof window !== 'undefined'){
-        return JSON.parse(localStorage.getItem('localStorageData')) || [];
-    }
-}
+// const getFromStorage = (key) => {
+//     if(typeof window !== 'undefined'){
+//         return JSON.parse(localStorage.getItem('localStorageData')) || [];
+//     }
+// }
 
 
 
