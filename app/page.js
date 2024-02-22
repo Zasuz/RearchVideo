@@ -70,7 +70,7 @@ export default function Home() {
         <div>
             {
 
-                history.map((value, index) => {
+                history && history.map((value, index) => {
                     return <HistoryItem key={index} thumbnailUrl={value.thumbUrl} title={value.title}
                                         searchTime={value.searchTime} type={value.type} url={value.url}></HistoryItem>
                 })

@@ -1,18 +1,25 @@
-
-
 import { createSlice } from '@reduxjs/toolkit';
 import {fetchYoutubeEmbed} from "@/redux/actions/fetchYoutubeEmbed";
 import {fetchTiktokEmbed} from "@/redux/actions/fetchTiktokEmbed";
 import instagramImg from "../../public/instagram-icon.png"
 import { format } from 'date-fns';
+import React from 'react'; // Import React từ thư viện react
+
+const getFromStorage = (key) => {
+    if(typeof window !== 'undefined'){
+        return JSON.parse(localStorage.getItem('localStorageData')) || [];
+    }
+}
 
 
-    const  searchHistory = JSON.parse(localStorage.getItem('localStorageData')) || [];
+
+
+
 
 
 const initialState = {
     url : "",
-    history: searchHistory,
+    history: [],
     type:"",
     isLoading:false,
     isError:false,
@@ -82,7 +89,7 @@ const saveHistory = (state,thumbUrl,title,type,url)=>{
 
     const historyInfoItem = { thumbUrl: thumbUrl,title:title,searchTime:currentFormatted.toString(),type:type,url:url};
     state.history = [historyInfoItem,...state.history];
-    localStorage.setItem('localStorageData', JSON.stringify(state.history));
+    // localStorage.setItem('localStorageData', JSON.stringify(state.history));
 }
 
 const saveState =(state,url,type)=>{
